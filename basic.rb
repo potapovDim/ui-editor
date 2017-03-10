@@ -178,3 +178,45 @@ end
 
 method_of_diff_lenght_args "First", "_@!", "z"
 method_of_diff_lenght_args "First", "_@!", "123", 2313
+
+#---------------------------------------------------------- BLOCKS
+# Block constist of chunks of code
+# Assign block name
+# Code of block is in { } 
+# Block invoke from function with the same name by operator 'yield'
+
+#example yield statement
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+def test_block1
+  puts "In method !"
+  yield
+  puts "in method second iteration"
+  yield
+end
+test_block1 {
+  block_variable = "test_block variable" 
+  puts "this is block 'test_block1' variable = #{block_variable}"
+}
+
+#block can get args 
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+def test_block1
+  puts "In method !"
+  yield "arg 1"
+  puts "in method second iteration"
+  yield "arg 2"
+end
+test_block1 {
+  |internal_variable|
+  block_variable = "test_block variable" 
+  puts "this is block 'test_block1' variable = #{block_variable} , and internal_variable #{internal_variable}"
+}
+# also work with argument 
+# def test_block
+#   puts "call method puts "
+#   yield 1, 2 - two pass variablen in block statement
+# end
+# test_block {
+#   |a, b| - initialization variable
+#   puts "var 1 =  #{a} , var 2  #{b}"
+# }
