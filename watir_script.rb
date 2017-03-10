@@ -2,10 +2,10 @@ require 'watir'
 require 'rubygems'
 browser = Watir::Browser.new :chrome
 
-browser.goto 'google.com'
-browser.text_field(id: 'lst-ib').set 'Hello Worldsadjsalfasjfjlaskjflasjfklkasjlfjlsajflasljklfjasjlfjlajsjfljsajd!'
-browser.button(type: 'submit').click
+browser.goto 'localhost:8080'
 
-puts browser.title
+browser.element(css: 'ul>li:nth-child(2)>button').click
+browser.element(css: '.previewElements__button_1jI').click
+
 # => 'Hello World! - Google Search'
-browser.quit
+#browser.quit
