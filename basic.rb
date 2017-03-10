@@ -220,3 +220,34 @@ test_block1 {
 #   |a, b| - initialization variable
 #   puts "var 1 =  #{a} , var 2  #{b}"
 # }
+#__________________________________________
+# block and methods 
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+def test_block2(&block)
+  block.call
+end
+test_block2 {
+  puts "test block 2 ---------"
+}
+# BEGIN and END statement
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+BEGIN {
+  #begin block code called at the top of this file , look at top of console log
+  puts "BEGIN BLOCK CODE - - - - "
+}
+END {
+  #end block code
+  puts "END BLOCK CODE - - - - "
+}
+
+puts "MAIN BLOCK CODE - - - - "
+#iterators 
+arr = [1, 2, 3, 4, 5, 6]
+arr.each do |i|
+  puts i
+end
+
+
+a = [1,2,3,4,5]
+b = a.collect{|x| 10*x}
+puts b
