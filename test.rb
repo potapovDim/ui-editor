@@ -13,9 +13,12 @@ class Test
   end
 end
 
+#paralel assignment 
+z, x, c = 10, 20, 30
 
+#instance of class
 test1 = Test. new
-
+#call instance class method
 test1.hello
 
 color.each do |key, value|
@@ -24,4 +27,105 @@ end
 
 arr.each do |i|
   puts i
+end
+
+# cosntant defined in main object
+MR_COUNT = 0
+# module
+module Foo
+  MR_COUNT = 0
+  ::MR_COUNT = 1 #set global MR_COUNT to 1
+  MR_COUNT = 2 #set local MR_COUNT to 2
+end
+
+print MR_COUNT
+print "--------------------"
+print Foo::MR_COUNT,"\n"
+#get warning
+
+#else if loop
+some_const = 10
+if some_const < 10
+  print "We are in if case \n"
+else
+  print "We are in else case \n"
+end
+#unless construnction revers to if
+unless some_const > 11
+    puts "const less than condition"
+  else
+    puts "Condition is trully"
+end
+
+#if condition after expression
+print "some_const is 10" if some_const
+print "some_const is 10, but unless call this if condition wrang" unless some_const > 11
+#empty lines
+print "\n"
+print "\n"
+print "\n"
+#end empty lines
+#case expression
+$age = 10 
+case $age 
+  when 0..5
+    puts "0-5 years old"
+  when 5..10
+    puts "5-10 years old"
+  when 10..15
+    puts "10-15 year old"
+  else
+    puts "more then 15 years old"
+end
+#empty line
+print "\n"
+#while loop
+$enum = 10
+$iterator = 0
+while $iterator < $enum
+  puts("Inside while loop iterator = #$iterator")
+  $iterator +=1
+end
+$iterator = 0
+#empty line
+print "\n"
+#while modifier
+begin
+  puts("Inside while modifier loop iterator = #$iterator")
+  $iterator +=1
+end while $iterator < $enum
+#empty line
+print "\n"
+#until loop - revers to while execudet while condition in wrang (falsy)
+$iterator = 0
+until $iterator > $enum
+  puts("Inside until loop iterator = #$iterator")
+  $iterator +=1
+end
+#empty line
+print "\n"
+#the same until modifier
+$iterator = 0
+begin
+  puts("Inside until modifier loop iterator = #$iterator")
+  $iterator +=1
+end until $iterator > $enum
+#empty line
+print "\n"
+
+#break statement 
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+for i in  0..5
+  if i > 2 then
+    break
+  end #if in if get false puts work !
+  puts "value of local variable is #{i}"
+end
+#next statement
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+for i in 0..5
+   if i < 2 then
+      next 
+   end #if in if get false puts work
+   puts "Value of local variable is #{i}"
 end
