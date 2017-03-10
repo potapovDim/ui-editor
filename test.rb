@@ -42,7 +42,8 @@ print MR_COUNT
 print "--------------------"
 print Foo::MR_COUNT,"\n"
 #get warning
-
+#---------------------------------------------------------- LOOPS
+print "#---------------------------------------------------------- LOOPS \n"
 #else if loop
 some_const = 10
 if some_const < 10
@@ -129,3 +130,51 @@ for i in 0..5
    end #if in if get false puts work
    puts "Value of local variable is #{i}"
 end
+#next statement
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+#redo statement
+# for i in 0..5
+#   if i < 2 then
+#     puts "Local variable is #{i}"
+#     redo # get while true!!!!!
+#   end
+# end
+#retry statement
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+
+# for a in 1..5
+#    retry if  a > 2
+#    puts "Value of local variable is #{a}"
+# end
+
+#---------------------------------------------------------- METHODS
+print "#---------------------------------------------------------- METHODS \n"
+def print_args(var1 ="default var 1", var2 = "default var 2") #default values initialization
+  puts "Var 1 === #{var1} value "
+  puts "Var 2 === #{var2} value "
+end
+
+print_args 1,2 # can call print_args(1,2)
+
+puts "+++++++++++++++++++++++++++++++++++++++ \n"
+
+def test
+   i = 100
+   j = 10
+   k = 0
+end
+
+$new_local_variable = test #default return last value in method
+print "NEW LOCAL VARIABLE IS #{$new_local_variable} \n" # new_local_variable in 0
+
+#method with different length of arguments
+def method_of_diff_lenght_args(*args)
+  print "-----=======--------========------ method_of_diff_lenght_args!"
+  puts "Argument length in method_of_diff_lenght_args  is = #{args.length}"
+  for i in 0..args.length - 1 #args in array 
+    puts "The parametr are #{args[i]}"
+  end
+end
+
+method_of_diff_lenght_args "First", "_@!", "z"
+method_of_diff_lenght_args "First", "_@!", "123", 2313
