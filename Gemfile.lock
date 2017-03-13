@@ -43,9 +43,9 @@ PLATFORMS
 
 DEPENDENCIES
   chromedriver-helper
-  rspec
-  watir
-  watir-webdriver
+  rspec (>= 3.5.0)
+  watir (>= 6.2.0)
+  watir-webdriver (>= 0.9.9)
 
 BUNDLED WITH
    1.14.6
