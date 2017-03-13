@@ -7,17 +7,17 @@ describe "Weblium" do
   before :each do
     browser.goto 'localhost:8080'
   end
-  it "click left nav " do
+  it "click left nav " do #click left nav 
     browser.element(css: 'ul>li:nth-child(2)>button').click
     browser.element(css: '.previewElements__button_1jI').click
   end
-  it "open block settings" do
+  it "open block settings" do #open block settings
     browser.element(css: '.blockDecorator_1Ch').hover 
     browser.element(css: '[data-test="edit-button"]').fire_event "mousemove"
     browser.element(css: '[data-test="edit-button"]').hover 
     browser.element(css: '[data-test="edit-button"]').click
   end
-  it "change block top padding" do
+  it "change block top padding" do #change paddins of block element 
     browser.element(css: '.blockDecorator_1Ch').hover 
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mousemove"
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mouseover"
