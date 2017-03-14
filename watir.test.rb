@@ -1,11 +1,11 @@
 require 'watir'
 require 'rubygems'
 require 'rspec'
-require './po/paddings'
+require './po/resize'
 
 describe "Weblium" do
   browser = Watir::Browser.new :chrome
-  paddings_po = PaddingsPO.new(browser)
+  paddings_block = Resize::PaddingsBlock.new browser
 
   before :each do
     browser.goto 'localhost:8080'
@@ -25,7 +25,7 @@ describe "Weblium" do
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mousemove"
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mouseover"
     
-    paddings_po.resize_padding_top_block 10, -10
+    paddings_block.resize_padding_top_block 10, -10
     browser.wait 500
   end
   it "change block bottom padding" do #change bottom paddin block element 
@@ -33,7 +33,7 @@ describe "Weblium" do
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mousemove"
     browser.element(css: '[data-test="block-padding-top"]').fire_event "mouseover"
     
-    paddings_po.resize_padding_bottom_block 10, -10
+    paddings_block.resize_padding_bottom_block 10, -10
     browser.wait 500
   end
   after :all do
