@@ -1,17 +1,20 @@
 module BlockSettings
   #css selectors initial
-  @draggable_header = '[data-test="win-setting-header"]'
-  @settings_body = '[data-test="window-settings-content"]'
+  @draggable_header       = '[data-test="win-setting-header"]'
+  @settings_body          = '[data-test="window-settings-content"]'
   #Open drop down controls
-  @drop_list_control = '.Select-control'
+  @drop_list_control      = '.Select-control'
   #Drop down options   
-  @drop_list_options = '.Select-option'
+  @drop_list_options      = '.Select-option'
+  #open color picker 
+  @color_picker           = '[data-test="color-picker-input"]'
   #initialize driver
   @browser
   def self.initBrowser(browser)
     @browser = browser
   end
   #methods
+  #change change background type
   def self.change_background_type(type = "none")
     drop_list =  @browser.elements(css: @drop_list_control)
     drop_options = @browser.elements(css: @drop_list_options)
@@ -22,6 +25,19 @@ module BlockSettings
       when "image"
         drop_list[0].fire_event "mousedown"
         drop_options[1].fire_event "mousedown"
+      when "video"
+        drop_list[0].fire_event "mousedown"
+        drop_options[2].fire_event "mousedown"
+      when "color"
+        drop_list[0].fire_event "mousedown"
+        drop_options[3].fire_event "mousedown"    
+      when "gradient"
+        drop_list[0].fire_event "mousedown"
+        drop_options[4].fire_event "mousedown"    
     end
+  end
+  #open color picker 
+  def self.open_color_picker
+    @browser.element(css: @color_picker).click
   end
 end

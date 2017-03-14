@@ -21,9 +21,15 @@ describe "Weblium" do
     browser.wait 500
   end
 
-  it "change block background type" do #change block background type to none
+  it "change block background type none" do #change block background type to none
     block.click_block_context "settings"
     block.change_block_background
+  end
+
+  it "change block background type color" do #change block background type to color and change alpha chanel
+    block.click_block_context "settings"
+    block.change_block_background "color"
+    block.change_color 10, 0
   end
   after :all do
     browser.quit
