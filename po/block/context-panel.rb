@@ -16,5 +16,7 @@ module ContextButtons
   def self.block_duplicate
     @browser.element(css: @duplicate_block).click
   end
-  
+  def self.open_block_settings
+    @browser.element(css: @open_settings).click
+  end
 end
