@@ -37,7 +37,7 @@ module BlockSettings
     end
   end
   #open color picker 
-  def self.open_color_picker
-    @browser.element(css: @color_picker).click
+  def self.open_color_picker (number)
+    @browser.elements(css: @color_picker)[number].click
   end
 end

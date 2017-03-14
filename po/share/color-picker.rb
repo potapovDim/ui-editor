@@ -10,7 +10,14 @@ module ColorPicker
     @browser = browser
   end
   #methods
-  def self.change_alpha (x, y) #change alpha chanel
-    @browser.element(css: @alpha).drag_and_drop_by x, y
+  def self.change_color (x, y, type="alpha") #change color
+    case type
+      when "alpha"
+        @browser.element(css: @alpha).drag_and_drop_by x, y
+      when "hue"  
+        @browser.element(css: @hue).drag_and_drop_by x, y
+      when "saturation"
+        @browser.element(css: @saturation).drag_and_drop_by x, y
+    end
   end
 end

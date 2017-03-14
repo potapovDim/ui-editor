@@ -40,15 +40,10 @@ class Block
     BlockSettings.change_background_type back_type
   end
   #color picker api
-  def change_color(x, y, type="alpha")
-    BlockSettings.open_color_picker
-    case type
-      when "alpha"
-        ColorPicker.change_alpha x, y
-      when "hue"
-        #ColorPicker.block_duplicate
-      when "saturation"
-        #ColorPicker.open_block_settings
-    end
+  def open_color_picker (color_picker_number=0)
+    BlockSettings.open_color_picker color_picker_number
+  end
+  def change_background_color(x, y, type="alpha")
+    ColorPicker.change_color x, y, type
   end 
 end

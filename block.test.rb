@@ -26,10 +26,17 @@ describe "Weblium" do
     block.change_block_background
   end
 
-  it "change block background type color" do #change block background type to color and change alpha chanel
+  it "change block background type to color color" do #change block background type to color and change alpha chanel
     block.click_block_context "settings"
     block.change_block_background "color"
-    block.change_color 10, 0
+    block.open_color_picker
+    block.change_background_color 10, 10
+    browser.wait 2500 
+    block.change_background_color 50, 50, "saturation"
+    block.change_background_color 60, 0, "hue"
+    block.change_background_color 50, 50, "saturation"
+    browser.wait 2500
+    browser.send_keys :escape
   end
   after :all do
     browser.quit
