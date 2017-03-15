@@ -3,11 +3,12 @@ require 'rubygems'
 require 'rspec'
 require './po/block/index'
 
-describe "Weblium" do
+describe "Block component" do
   browser = Watir::Browser.new :chrome
   block = Block.new browser
 
   before :each do
+    browser.window.resize_to 1200, 1600
     browser.goto 'localhost:8080'
   end
 

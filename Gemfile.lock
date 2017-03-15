@@ -14,6 +14,7 @@ GEM
     mini_portile2 (2.1.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -43,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   chromedriver-helper
+  rake
   rspec (>= 3.5.0)
   watir (>= 6.2.0)
   watir-webdriver (>= 0.9.9)
