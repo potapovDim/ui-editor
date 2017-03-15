@@ -8,12 +8,11 @@ describe "Weblium" do
   block = Block.new browser
 
   before :each do
-    browser.window.resize_to 1200, 1600
     browser.goto 'localhost:8080'
   end
 
   it 'some' do
-    
+    browser.window.resize_to 1200, 1600
   end
   after :all do
     browser.quit
