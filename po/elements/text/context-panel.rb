@@ -12,6 +12,7 @@ module TextContextPanel
   #methods
   def self.focused_element
     @browser.element(css: @text_element).fire_event "mousedown"
+    return self
   end
   def self.click_context_item(item="align center") #item in context panel text element
     items = @browser.elements(css: @context_panel_item)
@@ -29,5 +30,6 @@ module TextContextPanel
       when "remove"
         items[5].click
     end
+    return self
   end
 end
