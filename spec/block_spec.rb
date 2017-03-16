@@ -36,6 +36,13 @@ describe "Block component" do
          .change_color(-45, 50, "saturation")
     browser.send_keys :escape
   end
+
+  it "change block background to image " do #change block background to image and change background position
+    block.click_block_context "settings"
+    block.change_block_background("image")  
+         .change_background_size("cover")
+         .change_background_position("top right")
+  end
   after :all do
     browser.quit
   end

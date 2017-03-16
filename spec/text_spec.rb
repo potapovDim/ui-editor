@@ -1,7 +1,6 @@
 require 'watir'
 require 'rubygems'
 require 'rspec'
-require './po/block/index'
 
 describe "Weblium" do
   browser = Watir::Browser.new :chrome
