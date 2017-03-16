@@ -1,7 +1,7 @@
-module LineContextPanel
+module ButtonContextPanel
   #css selectors 
-  #line element
-  @line_element = '[data-test="draggable-element-line"]'
+  #button element
+  @button_element = '[data-test="draggable-element-button"]'
   #context panel item selector
   @context_panel_item = '[data-test="context-panel-item"]'
   #browser instance
@@ -11,24 +11,28 @@ module LineContextPanel
   end
   #methods
   def self.focused_element
-    @browser.element(css: @line_element).fire_event "mousedown"
+    @browser.element(css: @button_element).fire_event "mousedown"
     return self
   end
   def self.click_context_item(item="align center") #item in context panel text element
     items = @browser.elements(css: @context_panel_item)
     case item
-      when "line settings"
+      when "edit title"
         items[0].click
-      when "duplicate"
+      when "link"
         items[1].click
-      when "align left"
+      when "design"
         items[2].click
-      when "align center"
+      when "duplicate"
         items[3].click
-      when "align right"
+      when "align left"
         items[4].click
-      when "remove"
+      when "align center"
         items[5].click
+      when "align right"
+        items[6].click
+      when "remove"
+        items[7].click
     end
     return self
   end

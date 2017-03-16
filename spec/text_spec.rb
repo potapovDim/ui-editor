@@ -18,6 +18,9 @@ describe 'Text element' do
     text.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
+        .click_context_item("align left")
+        .click_context_item("align center")
+        #.click_context_item("remove")
   end
 
   after :all do
