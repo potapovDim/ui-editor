@@ -8,6 +8,7 @@ module ColorPicker
   @browser
   def self.initBrowser(browser)
     @browser = browser
+    return self
   end
   #methods
   def self.change_color (x, y, type="alpha") #change color
@@ -19,5 +20,6 @@ module ColorPicker
       when "saturation"
         @browser.element(css: @saturation).drag_and_drop_by x, y
     end
+    return self
   end
 end

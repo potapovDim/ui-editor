@@ -1,18 +1,18 @@
 require_relative "paddings"
 require_relative "context-panel"
-require_relative "block-settings"
 require_relative "../share/color-picker"
+require_relative "../share/settings-background-tab"
 
 class Block
   include PaddingsBlock
   include ContextButtons
-  include BlockSettings
+  include BackgroundTab
   include ColorPicker
   #initialize drivers
   def initialize(browser)
     ContextButtons.initBrowser browser
     PaddingsBlock.initBrowser browser
-    BlockSettings.initBrowser browser
+    BackgroundTab.initBrowser browser
     ColorPicker.initBrowser browser
   end
   #paddings api
@@ -37,14 +37,14 @@ class Block
   end
   #block settings api
   def change_block_background(back_type = "none")
-    BlockSettings.change_background_type back_type
+    BackgroundTab.change_background_type back_type
   end
   #color picker api
   def open_color_picker (color_picker_number=0)
-    BlockSettings.open_color_picker color_picker_number
+    BackgroundTab.open_color_picker color_picker_number
   end
   #change background color
-  def change_background_color(x, y, type="alpha")
-    ColorPicker.change_color x, y, type
-  end 
+  # def change_background_color(x, y, type="alpha")
+  #   ColorPicker.change_color x, y, type
+  # end 
 end

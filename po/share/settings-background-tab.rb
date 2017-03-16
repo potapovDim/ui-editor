@@ -1,4 +1,7 @@
-module BlockSettings
+require_relative "color-picker"
+
+module BackgroundTab
+  include ColorPicker
   #css selectors initial
   @draggable_header       = '[data-test="win-setting-header"]'
   @settings_body          = '[data-test="window-settings-content"]'
@@ -35,9 +38,11 @@ module BlockSettings
         drop_list[0].fire_event "mousedown"
         drop_options[4].fire_event "mousedown"    
     end
+    return self
   end
   #open color picker 
   def self.open_color_picker (number)
     @browser.elements(css: @color_picker)[number].click
+    return ColorPicker.initBrowser @browser
   end
 end
