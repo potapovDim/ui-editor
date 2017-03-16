@@ -49,7 +49,23 @@ module BackgroundTab
   #image part methods
   #change background size : contain - cover - original
   def self.change_background_size(size="contain")
-     drop_list =  @browser.elements(css: @drop_list_control)
+    drop_list =  @browser.elements(css: @drop_list_control)
+    drop_options = @browser.elements(css: @drop_list_options)
+    case background
+      when "contain"
+        drop_list[1].fire_event "mousedown"
+        drop_options[0].fire_event "mousedown"
+      when "cover"
+        drop_list[1].fire_event "mousedown"
+        drop_options[1].fire_event "mousedown"
+      when "original"
+        drop_list[1].fire_event "mousedown"
+        drop_options[2].fire_event "mousedown"
+    end
+    return self
+  end
+  def self.change_background_position(position="bottom right")
+    drop_list =  @browser.elements(css: @drop_list_control)
     drop_options = @browser.elements(css: @drop_list_options)
     case background
       when "contain"
