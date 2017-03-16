@@ -31,13 +31,9 @@ describe "Block component" do
     block.click_block_context "settings"
     block.change_block_background "color"
     block.open_color_picker
-         .change_color 10, 10
-    #block.change_background_color 10, 10
-    # browser.wait 2500 
-    # block.change_background_color 50, 50, "saturation"
-    # block.change_background_color 60, 0, "hue"
-    # block.change_background_color 50, 50, "saturation"
-    # browser.wait 2500
+         .change_color(10, 10)
+         .change_color(10, 50, "hue")
+         .change_color(-45, 50, "saturation")
     browser.send_keys :escape
   end
   after :all do

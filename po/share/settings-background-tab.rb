@@ -17,11 +17,12 @@ module BackgroundTab
     @browser = browser
   end
   #methods
+  #shared methods
   #change change background type
-  def self.change_background_type(type = "none")
+  def self.change_background_type(background = "none")
     drop_list =  @browser.elements(css: @drop_list_control)
     drop_options = @browser.elements(css: @drop_list_options)
-    case type 
+    case background
       when "none"
         drop_list[0].fire_event "mousedown"
         drop_options[0].fire_event "mousedown"
@@ -44,5 +45,23 @@ module BackgroundTab
   def self.open_color_picker (number)
     @browser.elements(css: @color_picker)[number].click
     return ColorPicker.initBrowser @browser
+  end
+  #image part methods
+  #change background size : contain - cover - original
+  def self.change_background_size(size="contain")
+     drop_list =  @browser.elements(css: @drop_list_control)
+    drop_options = @browser.elements(css: @drop_list_options)
+    case background
+      when "contain"
+        drop_list[1].fire_event "mousedown"
+        drop_options[0].fire_event "mousedown"
+      when "cover"
+        drop_list[1].fire_event "mousedown"
+        drop_options[1].fire_event "mousedown"
+      when "original"
+        drop_list[1].fire_event "mousedown"
+        drop_options[2].fire_event "mousedown"
+    end
+    return self
   end
 end
