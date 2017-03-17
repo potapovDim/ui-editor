@@ -43,4 +43,8 @@ class Block
   def open_color_picker (color_picker_number=0)
     BackgroundTab.open_color_picker color_picker_number
   end
+  #media gallery api
+  def open_media_gallery
+    BackgroundTab.open_gallery
+  end
 end

@@ -1,20 +1,24 @@
 require_relative "color-picker"
+require_relative "media-gallery"
 
 module BackgroundTab
   include ColorPicker
+  include MediaGallery
   #css selectors initial
-  @draggable_header       = '[data-test="win-setting-header"]'
-  @settings_body          = '[data-test="window-settings-content"]'
+  @draggable_header         = '[data-test="win-setting-header"]'
+  @settings_body            = '[data-test="window-settings-content"]'
   #current background
   @current_background_image = '[data-test="settings-upload-photo"]'
   #Open drop down controls
-  @drop_list_control      = '.Select-control'
+  @drop_list_control        = '.Select-control'
   #Drop down options   
-  @drop_list_options      = '.Select-option'
+  @drop_list_options        = '.Select-option'
   #if original image toggle repeat background
-  @repeat_background      = '#background-repeat'
+  @repeat_background        = '#background-repeat'
   #open color picker 
-  @color_picker           = '[data-test="color-picker-input"]'
+  @color_picker             = '[data-test="color-picker-input"]'
+  #open media 
+  @meddia_gallery_button    = '[data-test="settings-upload-photo"] button'
   #initialize driver
   @browser
   def self.initBrowser(browser)
@@ -106,5 +110,10 @@ module BackgroundTab
   def self.get_current_backgroud_image
     return @browser.element(css: @current_background_image).attribute_value('style')
   end
-  # need presets library add
+  #media gallery
+  def self.open_gallery
+    @browser.element(css: @meddia_gallery_button).click
+    return MediaGallery.initBrowser @browser
+  end
+  #need presets library add
 end

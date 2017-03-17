@@ -43,6 +43,17 @@ describe "Block component" do
          .change_background_size("cover")
          .change_background_position("top right")
   end
+
+  it "change background image" do
+    block.click_block_context "settings"
+    block.change_block_background("image")  
+    block.open_media_gallery()
+         .select_tab("my images")
+         .select_tab("free fotos")
+         .select_tab("help")
+
+
+  end
   after :all do
     browser.quit
   end
