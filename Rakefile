@@ -1,23 +1,28 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
-task :smoke_block do
+task :block_smoke do
   RSpec::Core::RakeTask.new(:block) do |t|
-    t.pattern = 'spec/block_spec.rb'
+    t.pattern = 'spec/smoke/block_spec.rb'
   end
   Rake::Task["block"].execute
 end
 
-task :smoke_text do
+task :text_smoke do
   RSpec::Core::RakeTask.new(:text) do |t|
-    t.pattern = 'spec/text_spec.rb'
+    t.pattern = 'spec/smoke/text_spec.rb'
   end
   Rake::Task["text"].execute
 end
 
-task :default do
+task :smoke do
   Rake::Task.tasks.each do |t| 
-    t.invoke do 
+    if !(/^.*_smoke$/=~ t.name).nil?
+      t.invoke do
+      end
     end
   end
+end
+
+task :default do
 end

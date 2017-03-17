@@ -1,9 +1,3 @@
-class Test
-  @@some = 'test!!!!!!!!'
-  def hi
-    puts @@some
-  end
-end
-
-te = Test.new
-te.hi
+test = 'text_smoe'
+#pattern = /*smoke^/
+puts !(/^.*_smoke$/=~ test).nil?
