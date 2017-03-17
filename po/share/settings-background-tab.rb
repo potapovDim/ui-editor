@@ -5,6 +5,8 @@ module BackgroundTab
   #css selectors initial
   @draggable_header       = '[data-test="win-setting-header"]'
   @settings_body          = '[data-test="window-settings-content"]'
+  #current background
+  @current_background_image = '[data-test="settings-upload-photo"]'
   #Open drop down controls
   @drop_list_control      = '.Select-control'
   #Drop down options   
@@ -99,6 +101,10 @@ module BackgroundTab
         drop_options[8].fire_event "mousedown"
     end
     return self
+  end
+  #current background image
+  def self.get_current_backgroud_image
+    return @browser.element(css: @current_background_image).attribute_value('style')
   end
   # need presets library add
 end
