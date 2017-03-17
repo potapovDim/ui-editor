@@ -44,14 +44,31 @@ describe "Block component" do
          .change_background_position("top right")
   end
 
-  it "change background image" do
+  it "change open media gallery" do
     block.click_block_context "settings"
     block.change_block_background("image")  
     block.open_media_gallery()
          .select_tab("my images")
          .select_tab("free fotos")
          .select_tab("help")
+  end
 
+  it "change open media gallery and searc free photo" do
+    block.click_block_context "settings"
+    block.change_block_background("image")  
+    block.open_media_gallery()
+         .select_tab("free fotos")
+         .search_free_photo("test")
+         .search_free_photo("abra")
+         .search_free_photo("dsal;kd;asll;dksak;")
+  end
+
+  it "change background to image and change image" do
+    block.click_block_context "settings"
+    block.change_block_background("image")  
+    block.open_media_gallery()
+         .select_tab("free fotos")
+         .choose_background_image(0)
 
   end
   after :all do
