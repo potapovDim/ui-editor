@@ -22,6 +22,14 @@ task :icon_smoke do
   Rake::Task["icon"].execute
 end
 
+task :button_smoke do
+  RSpec::Core::RakeTask.new(:button) do |t|
+    t.pattern = 'spec/smoke/button_spec.rb'
+  end
+  Rake::Task["button"].execute
+end
+
+
 task :smoke do
   Rake::Task.tasks.each do |t| 
     if !(/^.*_smoke$/=~ t.name).nil?

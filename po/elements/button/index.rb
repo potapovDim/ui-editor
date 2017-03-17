@@ -3,7 +3,7 @@ require_relative "./context-panel"
 class Button
   include ButtonContextPanel
   #css selectors
-  @@draggable_icon = '[data-test="draggable-element-icon"]' #draggable decorator selector
+  @@draggable_button = '[data-test="draggable-element-button"]' #draggable decorator selector
   #@extensions_line = '[data-test="extensions-container-none"]'
   #browser instance
   @@browser
@@ -13,7 +13,7 @@ class Button
   end
   #methods
   def focus_element 
-    @@browser.element(css: @@draggable_icon).fire_event "mousedown"
+    @@browser.element(css: @@draggable_button).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
     ButtonContextPanel.click_context_item align
