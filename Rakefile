@@ -15,6 +15,13 @@ task :text_smoke do
   Rake::Task["text"].execute
 end
 
+task :icon_smoke do
+  RSpec::Core::RakeTask.new(:icon) do |t|
+    t.pattern = 'spec/smoke/icon_spec.rb'
+  end
+  Rake::Task["icon"].execute
+end
+
 task :smoke do
   Rake::Task.tasks.each do |t| 
     if !(/^.*_smoke$/=~ t.name).nil?
