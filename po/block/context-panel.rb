@@ -1,5 +1,7 @@
+require_relative "./settings"
 #context buttons block
 module ContextButtons
+  include Settings
   #css selectors
   @block_component = '[data-test="block-component"]'
   @open_settings = '[data-test="edit-button"]'
@@ -17,6 +19,7 @@ module ContextButtons
     @browser.element(css: @remove_block).fire_event "mousemove" #for present context elements
     @browser.element(css: @remove_block).fire_event "mouseover"
     @browser.element(css: @remove_block).click
+    return self
   end
   def self.block_duplicate
     @browser.execute_script("window.scrollBy(0, -500)")
@@ -24,6 +27,7 @@ module ContextButtons
     @browser.element(css: @duplicate_block).fire_event "mousemove" #for present context elements
     @browser.element(css: @duplicate_block).fire_event "mouseover"
     @browser.element(css: @duplicate_block).click
+    return self
   end
   def self.open_block_settings
     @browser.execute_script("window.scrollBy(0, -500)")
@@ -31,5 +35,6 @@ module ContextButtons
     @browser.element(css: @open_settings).fire_event "mousemove" #for present context elements
     @browser.element(css: @open_settings).fire_event "mouseover"
     @browser.element(css: @open_settings).click
+    return Settings.initBrowser @browser
   end
 end

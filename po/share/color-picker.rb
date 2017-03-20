@@ -62,4 +62,8 @@ module ColorPicker
     end
     return self
   end
+  #close color picker
+  def self.close_color_picker
+    @browser.elements(css: '[data-test="win-setting-header"]>button')[1].click
+  end
 end

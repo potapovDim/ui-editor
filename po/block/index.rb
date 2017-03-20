@@ -4,15 +4,14 @@ require_relative "context-panel"
 class Block
   include PaddingsBlock
   include ContextButtons
-  include BackgroundTab
   #initialize drivers
+  @@browser
   def initialize(browser)
-    ContextButtons.initBrowser browser
-    PaddingsBlock.initBrowser browser
-    BackgroundTab.initBrowser browser
+    @@browser = browser
   end
   #paddings api
-  def resize_padding(x, y, padding="bottom")
+  def resize_padding()
+    return PaddingsBlock.ini
     case padding 
       when "top"
         PaddingsBlock.resize_padding_top_block  x, y
@@ -29,6 +28,7 @@ class Block
         ContextButtons.block_duplicate
       when "settings"
         ContextButtons.open_block_settings
+        return Settings.initBrowser 
     end
   end
   #block settings api

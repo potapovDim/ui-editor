@@ -17,6 +17,7 @@ module PaddingsBlock
     @browser.element(css: @padding_top).fire_event "mousemove"
     @browser.element(css: @padding_top).fire_event "mouseover"  
     @browser.element(css: @padding_top).drag_and_drop_by x, y
+    return self
   end
   def self.resize_padding_bottom_block(x, y)
     @browser.element(css: @block_component).hover
@@ -25,5 +26,6 @@ module PaddingsBlock
     @browser.element(css: @padding_bottom).fire_event "mouseover"  
     @browser.element(css: @padding_bottom).focus
     @browser.element(css: @padding_bottom).drag_and_drop_by x, y
+    return self
   end
 end
