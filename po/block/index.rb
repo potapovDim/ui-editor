@@ -8,12 +8,13 @@ class Block
   @@browser
   def initialize(browser)
     @@browser = browser
+    ContextButtons.initBrowser browser
   end
   #paddings api
   def resize_padding()
     return PaddingsBlock.initBrowser @@browser
   end
-  #clock context panel api
+  #block context panel api
   def click_block_context (button)
     case button
       when "remove"

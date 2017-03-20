@@ -18,10 +18,10 @@ module Settings
   def choose_tab(tab = "background")
     case tab
       when "background"
-        @browser.element(text: @background_tab).click
+        @browser.element(text: @background_tab).fire_event "mousedown"
         return BackgroundTab.initBrowser @browser
       when "appearance"
-        @browser.element(text: @appearance_tab).click
+        @browser.element(text: @appearance_tab).fire_event "mousedown"
         return AppearanceTab.initBrowser @browser
     end
   end

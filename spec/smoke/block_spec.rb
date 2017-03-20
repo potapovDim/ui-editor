@@ -26,12 +26,12 @@ describe "Block component" do
 
   it "change block background type to color color" do #change block background type to color and change alpha chanel
     block.click_block_context("settings")
-         .
-    # block.change_block_background "color"
-    # block.open_color_picker
-    #      .change_color(10, 10)
-    #      .change_color(10, 50, "hue")
-    #      .change_color(-45, 50, "saturation")
+         .choose_tab("background")
+         .change_background_type("color")
+         .open_color_picker
+         .change_color(10, 10)
+         .change_color(10, 50, "hue")
+         .change_color(-45, 50, "saturation")
     browser.send_keys :escape
   end
 
