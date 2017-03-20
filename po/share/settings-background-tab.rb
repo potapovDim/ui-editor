@@ -51,7 +51,7 @@ module BackgroundTab
     return self
   end
   #open color picker 
-  def self.open_color_picker (number)
+  def self.open_color_picker (number = 0)
     @browser.elements(css: @color_picker)[number].click
     return ColorPicker.initBrowser @browser
   end

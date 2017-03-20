@@ -5,7 +5,7 @@ module Settings
   include BackgroundTab
   include AppearanceTab
   #css selectors
-  @background_tab = 'Backgrount'
+  @background_tab = 'Background'
   @appearance_tab = 'Appearance'
 
   #browser instance
@@ -15,7 +15,7 @@ module Settings
     return self
   end
   #background tab api
-  def choose_tab(tab = "background")
+  def self.choose_tab(tab = "background")
     case tab
       when "background"
         @browser.element(text: @background_tab).fire_event "mousedown"

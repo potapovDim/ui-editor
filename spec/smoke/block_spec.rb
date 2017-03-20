@@ -28,7 +28,7 @@ describe "Block component" do
     block.click_block_context("settings")
          .choose_tab("background")
          .change_background_type("color")
-         .open_color_picker
+         .open_color_picker()
          .change_color(10, 10)
          .change_color(10, 50, "hue")
          .change_color(-45, 50, "saturation")
