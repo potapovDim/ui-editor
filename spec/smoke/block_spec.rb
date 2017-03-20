@@ -11,14 +11,7 @@ describe "Block component" do
     browser.window.resize_to 1200, 1600
     browser.goto 'localhost:8080'
   end
-  # it 'scroll' do
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  #   browser.execute_script("window.scrollBy(0, 500)")
-  # end
+  
   it "change block top padding" do #change top paddin of block element   
     block.resize_padding()
          .resize_padding_top_block(10, -10)
@@ -50,14 +43,14 @@ describe "Block component" do
          .change_background_position("top center")
   end
 
-  # it "change open media gallery" do
-  #   block.click_block_context "settings"
-  #   block.change_block_background("image")  
-  #   block.open_media_gallery()
-  #        .select_tab("my images")
-  #        .select_tab("free fotos")
-  #        .select_tab("help")
-  # end
+  it "change open media gallery" do
+    block.click_block_context("settings")
+         .choose_tab("background")
+         .change_background_type("image")
+         .open_gallery()
+         .select_tab("free photos")
+         .search_free_photo("dsalkdklasjkljd")
+  end
 
   # it "change open media gallery and searc free photo" do
   #   block.click_block_context "settings"
