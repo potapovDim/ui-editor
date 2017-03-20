@@ -9,6 +9,7 @@ module PaddingsBlock
   @browser
   def self.initBrowser(browser)
     @browser = browser
+    return self
   end
   #methods
   def self.resize_padding_top_block(x, y)

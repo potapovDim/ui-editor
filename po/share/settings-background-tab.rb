@@ -23,6 +23,7 @@ module BackgroundTab
   @browser
   def self.initBrowser(browser)
     @browser = browser
+    return self
   end
   #methods
   #shared methods

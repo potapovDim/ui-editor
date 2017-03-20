@@ -1,4 +1,4 @@
-require_relative "./settings"
+require_relative "./settings/index"
 #context buttons block
 module ContextButtons
   include Settings

@@ -11,13 +11,7 @@ class Block
   end
   #paddings api
   def resize_padding()
-    return PaddingsBlock.ini
-    case padding 
-      when "top"
-        PaddingsBlock.resize_padding_top_block  x, y
-      when "bottom"
-        PaddingsBlock.resize_padding_bottom_block  x, y
-    end
+    return PaddingsBlock.initBrowser @@browser
   end
   #clock context panel api
   def click_block_context (button)
@@ -28,7 +22,7 @@ class Block
         ContextButtons.block_duplicate
       when "settings"
         ContextButtons.open_block_settings
-        return Settings.initBrowser 
+        return Settings.initBrowser @@browser
     end
   end
   #block settings api

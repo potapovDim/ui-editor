@@ -9,6 +9,7 @@ module AppearanceTab
   @browser
   def self.initBrowser(browser)
     @browser = browser
+    return self
   end
   #methods
   def self.change_block_appearance(type="none")
@@ -20,5 +21,6 @@ module AppearanceTab
       when "full-center"
         @browser.element(css: @full_width_bg_center_ctnt).fire_event "change"
     end
+    return self
   end
 end
