@@ -5,6 +5,7 @@ require './po/block/index'
 
 describe "Block component" do
   browser = Watir::Browser.new :chrome
+  browser.driver.manage.timeouts.implicit_wait = 150
   block = Block.new browser
 
   before :each do
@@ -43,24 +44,34 @@ describe "Block component" do
          .change_background_position("top center")
   end
 
-  it "change open media gallery" do
+  it "change open media gallery, change tabs" do
     block.click_block_context("settings")
          .choose_tab("background")
          .change_background_type("image")
          .open_gallery()
          .select_tab("free photos")
          .search_free_photo("dsalkdklasjkljd")
+         .select_tab("my images")
+         .select_tab("help")
+    browser.send_keys :escape
   end
 
-  # it "change open media gallery and searc free photo" do
-  #   block.click_block_context "settings"
-  #   block.change_block_background("image")  
-  #   block.open_media_gallery()
-  #        .select_tab("free fotos")
-  #        .search_free_photo("test")
-  #        .search_free_photo("abra")
-  #        .search_free_photo("dsal;kd;asll;dksak;")
-  # end
+  it "change block content appearance" do
+    block.click_block_context("settings")
+         .choose_tab("appearance")
+         .change_block_appearance("full-full")
+    browser.send_keys :escape
+  end
+
+  it "pick new image for background" do
+    block.click_block_context("settings")
+         .choose_tab("background")
+         .change_background_type("image")
+         .open_gallery()
+         .select_tab("free photos")
+         .choose_background_image(1)
+    browser.send_keys :escape    
+  end
 
   # it "change background to image and change image" do
   #   block.click_block_context "settings"

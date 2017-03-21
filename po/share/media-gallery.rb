@@ -10,6 +10,9 @@ module MediaGallery
   #images collection 
   @unsplash_img                 = '.scrollarea-content.scrollBar__content img'
   #buttons for scroll and add image to own MediaGallery
+  # @uploading = @browser.div(text: 'Uploading')
+  # @uploaded = @browser.div(text: 'Uploaded')
+  #imageItem_1-Z - image instance
   #initialize browser
   @browser
   def self.initBrowser(browser)
@@ -18,13 +21,14 @@ module MediaGallery
   end
   #tabs 
   def self.select_tab(tab="my images")
+    tabs = @browser.elements(css: '.item_2-e')
     case tab
       when "my images"
-        @browser.div(text: 'My images').click
-      when "free fotos"
-        @browser.div(text: 'Free photos').click
+        tabs[0].click
+      when "free photos"
+        tabs[1].click
       when "help"
-        @browser.div(text: 'Help').click
+        tabs[2].click
     end
     return self
   end
@@ -37,18 +41,10 @@ module MediaGallery
 
   def self.choose_background_image(im_number=0)
     @browser.elements(css: @unsplash_img)[im_number].click
-    @browser.div(text: 'Add').fire_event "mousedown"
-    @browser.wait_until {@browser.div(text: 'Uploaded').present?}
+    @browser.div(text: 'Add').click
+    @browser.wait_until {@browser.div(text: 'Uploading').present?}
     self.select_tab
     @browser.element(css: @change_image_button).click
     return self
   end
-  # @previous = @browser.div(text: 'Previous')
-  # @add = @browser.div(text: 'Add')
-  # @next = @browser.div(text: 'Next')
-  # @uploading = @browser.div(text: 'Uploading')
-  # @uploaded = @browser.div(text: 'Uploaded')
-  #image description fields
- 
-
 end
