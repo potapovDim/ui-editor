@@ -1,6 +1,6 @@
 require_relative "./settings/index"
 #context buttons block
-module ContextButtons
+module ContextPanel
   include Settings
   #css selectors
   @block_component = '[data-test="block-component"]'

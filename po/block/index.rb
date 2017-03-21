@@ -3,12 +3,12 @@ require_relative "context-panel"
 
 class Block
   include PaddingsBlock
-  include ContextButtons
+  include ContextPanel
   #initialize drivers
   @@browser
   def initialize(browser)
     @@browser = browser
-    ContextButtons.initBrowser browser
+    ContextPanel.initBrowser browser
   end
   #paddings api
   def resize_padding()
@@ -18,11 +18,11 @@ class Block
   def click_block_context (button)
     case button
       when "remove"
-        ContextButtons.block_remove
+        ContextPanel.block_remove
       when "duplicate"
-        ContextButtons.block_duplicate
+        ContextPanel.block_duplicate
       when "settings"
-        ContextButtons.open_block_settings
+        ContextPanel.open_block_settings
         return Settings.initBrowser @@browser
     end
   end
