@@ -1,6 +1,9 @@
-def self.test
-   i = 100
-   j = 200
-   k = 300
-  return i, j, k, self
+def test(arg=1)
+  case arg
+    when 1
+      return 10
+  end
+  return 11
 end
+
+puts test
