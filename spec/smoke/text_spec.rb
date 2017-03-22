@@ -2,7 +2,6 @@ require_relative '../../scripts/local.rb'
 require './po/elements/text/index'
 
 describe 'Text element' do
-  text = Text.new @browser
 
   before :each do
     @browser.goto 'localhost:8080'
@@ -10,8 +9,8 @@ describe 'Text element' do
   end
 
   it 'change text element align' do
-    text.focus_element()
-    text.context_panel_action("align center")
+    @text.focus_element()
+    @text.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")

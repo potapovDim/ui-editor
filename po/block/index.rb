@@ -7,7 +7,6 @@ class Block
   #initialize drivers
   @@browser
   def initialize(browser)
-    puts 'dsalkjdlkjasjdljasljl', browser , 'dsadasdas'
     @@browser = browser
     ContextPanel.initBrowser browser
   end
