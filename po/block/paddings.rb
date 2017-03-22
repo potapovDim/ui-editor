@@ -8,6 +8,7 @@ module PaddingsBlock
   #browser instance
   @browser
   def self.initBrowser(browser)
+    
     @browser = browser
     return self
   end

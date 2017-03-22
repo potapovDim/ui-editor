@@ -1,16 +1,13 @@
-require 'watir'
-require 'rubygems'
-require 'rspec'
+require_relative '../../scripts/local.rb'
 require './po/elements/icon/index'
 
 describe 'Icon element' do
 
-  browser = Watir::Browser.new :chrome
-  icon = Icon.new browser
+  icon = Icon.new @browser
 
   before :each do
-    browser.goto 'localhost:8080'
-    browser.window.resize_to 1200, 1600
+    @browser.goto 'localhost:8080'
+    @browser.window.resize_to 1200, 1600
   end
 
   it 'change icon element align' do
@@ -23,7 +20,7 @@ describe 'Icon element' do
         #.click_context_item("remove")
   end
 
-  after :all do
-    browser.quit
-  end
+  # after :all do
+  #   browser.quit
+  # end
 end
