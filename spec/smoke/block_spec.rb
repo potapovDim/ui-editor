@@ -21,39 +21,39 @@ describe "Block component" do
 
   it "change block background type to color color" do #change block background type to color and change alpha chanel
     @block.click_block_context("settings")
-         .choose_tab("background")
-         .change_background_type("color")
-         .open_color_picker()
-         .change_color(10, 10)
-         .change_color(10, 50, "hue")
-         .change_color(-45, 50, "saturation")
+          .choose_tab("background")
+          .change_background_type("color")
+          .open_color_picker()
+          .change_color(10, 10)
+          .change_color(10, 50, "hue")
+          .change_color(-45, 50, "saturation")
     @browser.send_keys :escape
   end
 
   it "change block background to image " do #change block background to image and change background position
     @block.click_block_context("settings")
-         .choose_tab("background")
-         .change_background_type("image")
-         .change_background_size("cover")
-         .change_background_position("top center")
+          .choose_tab("background")
+          .change_background_type("image")
+          .change_background_size("cover")
+          .change_background_position("top center")
   end
 
   it "change open media gallery, change tabs" do
     @block.click_block_context("settings")
-         .choose_tab("background")
-         .change_background_type("image")
-         .open_gallery()
-         .select_tab("free photos")
-         .search_free_photo("dsalkdklasjkljd")
-         .select_tab("my images")
-         .select_tab("help")
+          .choose_tab("background")
+          .change_background_type("image")
+          .open_gallery()
+          .select_tab("free photos")
+          .search_free_photo("dsalkdklasjkljd")
+          .select_tab("my images")
+          .select_tab("help")
     @browser.send_keys :escape
   end
 
   it "change block content appearance" do
-    block.click_block_context("settings")
-         .choose_tab("appearance")
-         .change_block_appearance("full-full")
+    @block.click_block_context("settings")
+          .choose_tab("appearance")
+          .change_block_appearance("full-full")
     @browser.send_keys :escape
   end
 
