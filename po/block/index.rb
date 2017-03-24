@@ -26,5 +26,4 @@ class Block
         return Settings.initBrowser @@browser
     end
   end
-  #block settings api
 end

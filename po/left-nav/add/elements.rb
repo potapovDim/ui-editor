@@ -1,4 +1,4 @@
-module AppsPart
+module ElementsPart
   #left nav add apps catalogue
   #css selectors
   @button = '[data-test="thumbnail-button"]'

@@ -54,6 +54,8 @@ describe "Block component" do
     @block.click_block_context("settings")
           .choose_tab("appearance")
           .change_block_appearance("full-full")
+          .change_block_appearance("full-center")
+          .change_block_appearance()
     @browser.send_keys :escape
   end
 
