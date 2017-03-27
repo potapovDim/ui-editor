@@ -3,11 +3,12 @@ require_relative "./settings/index"
 module ContextPanel
   include Settings
   #css selectors
-  @block_component = '[data-test="block-component"]'
-  @row_component = '.row'
-  @row_duplicate_button = '[data-test="duplicate-row-button"]'
-  @row_remove_button = '[data-test="row-settings-delete-row"]'
-  @row_settings_button = '[data-test="row-settings-open-layout"]'
+  @block_component                 = '[data-test="block-component"]'
+  @row_component                   = '.row'
+  @row_duplicate_button            = '[data-test="duplicate-row-button"]'
+  @row_remove_button               = '[data-test="row-settings-delete-row"]'
+  @row_settings_button             = '[data-test="row-settings-open-layout"]'
+  @row_drag                        = '[data-test="row-settings"]>[draggable="true"]'
   #browser instance
   @browser
   def self.initBrowser(browser)
