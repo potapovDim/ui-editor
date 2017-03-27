@@ -7,7 +7,6 @@ require_relative '../po/elements/image/index'
 require_relative '../po/elements/line/index'
 require_relative '../po/elements/text/index'
 
-
 RSpec.configure do |config|
   config.around(:example) do |example|
     @browser = Watir::Browser.new :chrome
