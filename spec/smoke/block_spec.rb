@@ -9,18 +9,18 @@ describe "Block component" do
   
   it "change block top padding" do #change top paddin of block element   
     @block.resize_padding()
-          .resize_padding_top_block(10, -10)
+          .resize_padding_top_block(10, -10, 1)
     @browser.wait 500
   end
 
   it "change block bottom padding" do #change bottom paddin block element 
     @block.resize_padding()
-         .resize_padding_bottom_block(10, -10)
+         .resize_padding_bottom_block(10, -10, 1)
     @browser.wait 500
   end
 
   it "change block background type to color color" do #change block background type to color and change alpha chanel
-    @block.click_block_context("settings")
+    @block.click_block_context("settings", 1)
           .choose_tab("background")
           .change_background_type("color")
           .open_color_picker()
@@ -31,7 +31,7 @@ describe "Block component" do
   end
 
   it "change block background to image " do #change block background to image and change background position
-    @block.click_block_context("settings")
+    @block.click_block_context("settings", 1)
           .choose_tab("background")
           .change_background_type("image")
           .change_background_size("cover")
@@ -39,7 +39,7 @@ describe "Block component" do
   end
 
   it "change open media gallery, change tabs" do
-    @block.click_block_context("settings")
+    @block.click_block_context("settings", 1)
           .choose_tab("background")
           .change_background_type("image")
           .open_gallery()
@@ -51,7 +51,7 @@ describe "Block component" do
   end
 
   it "change block content appearance" do
-    @block.click_block_context("settings")
+    @block.click_block_context("settings", 1)
           .choose_tab("appearance")
           .change_block_appearance("full-full")
           .change_block_appearance("full-center")
@@ -60,7 +60,7 @@ describe "Block component" do
   end
 
   it "pick new image for background" do
-    @block.click_block_context("settings")
+    @block.click_block_context("settings", 1)
          .choose_tab("background")
          .change_background_type("image")
          .open_gallery()
@@ -68,16 +68,4 @@ describe "Block component" do
          .choose_background_image(1)
     @browser.send_keys :escape    
   end
-
-  # it "change background to image and change image" do
-  #   block.click_block_context "settings"
-  #   block.change_block_background("image")  
-  #   block.open_media_gallery()
-  #        .select_tab("free fotos")
-  #        .choose_background_image(0)
-
-  # end
-  # after :all do
-  #   browser.quit
-  # end
 end

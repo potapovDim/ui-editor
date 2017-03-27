@@ -8,7 +8,6 @@ module PaddingsBlock
   #browser instance
   @browser
   def self.initBrowser(browser)
-    
     @browser = browser
     return self
   end
@@ -21,7 +20,7 @@ module PaddingsBlock
     return self
   end
   def self.resize_padding_bottom_block(x, y, index=0)
-    @browser.elements(css: @block_component).hover
+    @browser.elements(css: @block_component)[index].hover
     @browser.wait(250)
     @browser.elements(css: @padding_bottom)[index].focus
     @browser.elements(css: @padding_bottom)[index].drag_and_drop_by x, y
