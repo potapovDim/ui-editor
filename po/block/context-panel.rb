@@ -12,30 +12,28 @@ module ContextPanel
   def self.initBrowser(browser)
     @browser = browser
   end
-  def self.block_remove
-    @browser.element(css: @block_component).hover
-    @browser.execute_script("window.scrollBy(0, -500)")
-    @browser.wait 250
-    @browser.element(css: @remove_block).fire_event "mousemove" #for present context elements
-    @browser.element(css: @remove_block).fire_event "mouseover"
-    @browser.element(css: @remove_block).click
+  def self.helper_contextpanel(index)
+    @browser.execute_script("window.scrollBy(0, -100)")
+    if @browser.elements(css: @open_settings)[index].present?
+      return true
+    end
+  end
+  def self.block_remove(index)
+    @browser.elements(css: @block_component)[index].hover
+    @browser.wait_until {self.helper_contextpanel(index)}
+    @browser.elements(css: @remove_block)[index].click
     return self
   end
-  def self.block_duplicate
-    @browser.element(css: @block_component).hover
-    @browser.execute_script("window.scrollBy(0, -500)")
-    @browser.element(css: @duplicate_block).fire_event "mousemove" #for present context elements
-    @browser.element(css: @duplicate_block).fire_event "mouseover"
-    @browser.element(css: @duplicate_block).click
+  def self.block_duplicate(index)
+    @browser.elements(css: @block_component)[index].hover
+    @browser.wait_until {self.helper_contextpanel(index)}
+    @browser.elements(css: @duplicate_block)[index].click
     return self
   end
-  def self.open_block_settings
-    @browser.element(css: @block_component).hover
-    @browser.execute_script("window.scrollBy(0, -500)")
-    @browser.execute_script("window.scrollBy(0, -500)")
-    @browser.element(css: @open_settings).hover
-    @browser.element(css: @open_settings).fire_event "mouseover"
-    @browser.element(css: @open_settings).click
+  def self.open_block_settings (index)
+    @browser.elements(css: @block_component)[index].hover
+    @browser.wait_until {self.helper_contextpanel(index)}
+    @browser.elements(css: @open_settings)[index].click
     return Settings.initBrowser @browser
   end
 end

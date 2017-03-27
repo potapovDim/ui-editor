@@ -15,14 +15,14 @@ class Block
     return PaddingsBlock.initBrowser @@browser
   end
   #block context panel api
-  def click_block_context (button)
+  def click_block_context (button, index = 0)
     case button
       when "remove"
-        ContextPanel.block_remove
+        ContextPanel.block_remove(index)
       when "duplicate"
-        ContextPanel.block_duplicate
+        ContextPanel.block_duplicate(index)
       when "settings"
-        ContextPanel.open_block_settings
+        ContextPanel.open_block_settings(index)
         return Settings.initBrowser @@browser
     end
   end
