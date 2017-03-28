@@ -1,5 +1,4 @@
 require_relative '../../scripts/local.rb'
-require './po/elements/text/index'
 
 describe 'Text element' do
 

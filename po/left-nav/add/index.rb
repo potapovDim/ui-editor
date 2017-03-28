@@ -3,7 +3,7 @@ require_relative "./built-in-apps"
 
 module Add
   include ElementsPart
-  include AppsPart
+  include BuiltInAppsPart
   #browser instance
   @browser
   def self.initBrowser(browser)
@@ -16,6 +16,6 @@ module Add
   end
 
   def self.add_apps
-    return AppsPart.initBrowser @browser
+    return BuiltInAppsPart.initBrowser @browser
   end
 end

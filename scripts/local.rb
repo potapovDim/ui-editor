@@ -6,6 +6,7 @@ require_relative '../po/elements/icon/index'
 require_relative '../po/elements/image/index'
 require_relative '../po/elements/line/index'
 require_relative '../po/elements/text/index'
+require_relative '../po/left-nav/index'
 
 RSpec.configure do |config|
   config.around(:example) do |example|
@@ -19,7 +20,9 @@ RSpec.configure do |config|
     @button = Button.new @browser
     @line = Line.new @browser
     @icon = Icon.new @browser
-
+    #leftnav instance
+    @left_nav = LeftNav.new @browser
+    
     begin
       example.run
     ensure 

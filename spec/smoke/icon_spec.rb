@@ -1,5 +1,4 @@
 require_relative '../../scripts/local.rb'
-require './po/elements/icon/index'
 
 describe 'Icon element' do
 
