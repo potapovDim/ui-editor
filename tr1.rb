@@ -1,10 +1,9 @@
-
-a=1
-until a > 15 do
-  a+=1
-  puts a
-  if a == 10
-    puts 'in if'
-    return 
-  end
+def prev_returner(*args)
+  return 'a','b','c'
 end
+def returner
+  return 1, prev_returner ,3
+end
+
+a, b, c = returner
+puts 10!= 11

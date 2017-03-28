@@ -1,4 +1,7 @@
+require_relative "./create-new-page"
+
 module Pages
+  include CreateNewPage
   #pages
   #css selectors
   @page                          = '[data-test="item-node-target"]'
@@ -20,5 +23,10 @@ module Pages
   end
   def self.delete_page
     @browser.elements(css: @page_buttons)[2].click
+  end
+
+  def self.create_new_page
+    @browser.div(text: 'Create new page').click
+    return @browser.elements(css: @page).length, CreateNewPage.initBrowser(@browser)
   end
 end
