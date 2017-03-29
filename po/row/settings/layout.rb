@@ -2,12 +2,13 @@
 module LayoutTab
   @block_component           = '[data-test="block-component"]'
   @layout_item               = '[data-test="row-layout-item"]'
-  @custom_layout_circle      = '.rc-slider-handle'
+  @custom_layout_circle      = '.rc-slider'
   @no_margin                 = '#nomargin-option'
   #browser instance
   @browser
   def self.initBrowser(browser)
     @browser = browser
+    return self
   end
   #api methods
   def self.change_layout(layout = 1)
@@ -42,8 +43,8 @@ module LayoutTab
     end
     return self
   end
-  def self.create_cutom_layout(x, y)
-    @browser.element(css: @custom_layout_circle).drag_and_drop_by x, y
+  def self.create_cutom_layout(x, y, pointer_index=0)
+    @browser.elements(css: @custom_layout_circle)[pointer_index].drag_and_drop_by x, y
     return self
   end
   def self.change_nomargin_option

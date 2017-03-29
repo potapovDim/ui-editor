@@ -1,4 +1,3 @@
-require_relative "paddings"
 require_relative "context-panel"
 
 class Row
