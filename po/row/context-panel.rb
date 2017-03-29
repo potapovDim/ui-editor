@@ -1,7 +1,7 @@
 require_relative "./settings/index"
 #context buttons row
-module ContextPanel
-  include Settings
+module ContextPanelRow
+  include SettingsRow
   #css selectors
   @block_component                 = '[data-test="block-component"]'
   @row_component                   = '.row'
@@ -36,6 +36,6 @@ module ContextPanel
     @browser.elements(css: @row_component)[index].hover
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @row_settings_button)[index].click
-    return Settings.initBrowser @browser
+    return SettingsRow.initBrowser @browser
   end
 end

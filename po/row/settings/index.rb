@@ -1,7 +1,7 @@
 require_relative "../../share/settings-background-tab"
 require_relative "./layout"
 
-module Settings
+module SettingsRow
   include BackgroundTab
   include LayoutTab
   #css selectors

@@ -1,14 +1,14 @@
-require_relative "paddings"
-require_relative "context-panel"
+require_relative "./paddings"
+require_relative "./context-panel"
 
 class Block
   include PaddingsBlock
-  include ContextPanel
+  include ContextPanelBlock
   #initialize drivers
   @@browser
   def initialize(browser)
     @@browser = browser
-    ContextPanel.initBrowser browser
+    ContextPanelBlock.initBrowser browser
   end
   #paddings api
   def resize_padding()
@@ -18,12 +18,11 @@ class Block
   def click_block_context (button, index = 0)
     case button
       when "remove"
-        ContextPanel.block_remove(index)
+        ContextPanelBlock.block_remove(index)
       when "duplicate"
-        ContextPanel.block_duplicate(index)
+        ContextPanelBlock.block_duplicate(index)
       when "settings"
-        ContextPanel.open_block_settings(index)
-        return Settings.initBrowser @@browser
+        ContextPanelBlock.open_block_settings(index)
     end
   end
 end

@@ -1,7 +1,7 @@
 require_relative "../../share/settings-background-tab"
 require_relative "./settings-appearance-tab.rb"
 
-module Settings
+module SettingsBlock
   include BackgroundTab
   include AppearanceTab
   #css selectors

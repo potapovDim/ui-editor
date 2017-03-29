@@ -1,7 +1,7 @@
 require_relative "./settings/index"
 #context buttons block
-module ContextPanel
-  include Settings
+module ContextPanelBlock
+  include SettingsBlock
   #css selectors
   @block_component = '[data-test="block-component"]'
   @open_settings = '[data-test="edit-button"]'
@@ -13,7 +13,7 @@ module ContextPanel
     @browser = browser
   end
   def self.helper_contextpanel(index)
-    @browser.execute_script("window.scrollBy(0, -100)")
+    @browser.execute_script("window.scrollBy(0, -200)")
     if @browser.elements(css: @open_settings)[index].present?
       return true
     end
@@ -34,6 +34,6 @@ module ContextPanel
     @browser.elements(css: @block_component)[index].hover
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @open_settings)[index].click
-    return Settings.initBrowser @browser
+    return SettingsBlock.initBrowser @browser
   end
 end

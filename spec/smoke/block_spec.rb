@@ -18,6 +18,15 @@ describe "Block component" do
          .resize_padding_bottom_block(10, -10, 1)
     @browser.wait 500
   end
+  
+  it "change block content appearance" do
+    @block.click_block_context("settings", 1)
+          .choose_tab("appearance")
+          .change_block_appearance("full-full")
+          .change_block_appearance("full-center")
+          .change_block_appearance()
+    @browser.send_keys :escape
+  end
 
   it "change block background type to color color" do #change block background type to color and change alpha chanel
     @block.click_block_context("settings", 1)
@@ -50,14 +59,6 @@ describe "Block component" do
     @browser.send_keys :escape
   end
 
-  it "change block content appearance" do
-    @block.click_block_context("settings", 1)
-          .choose_tab("appearance")
-          .change_block_appearance("full-full")
-          .change_block_appearance("full-center")
-          .change_block_appearance()
-    @browser.send_keys :escape
-  end
 
   it "pick new image for background" do
     @block.click_block_context("settings", 1)
