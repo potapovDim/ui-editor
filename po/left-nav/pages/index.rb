@@ -4,8 +4,11 @@ module Pages
   include CreateNewPage
   #pages
   #css selectors
-  @page                          = '[data-test="item-node-target"]'
-  @page_buttons                  = '[data-test="layout-button"]'
+  @pages_open                       = '[data-test="left-nav-button-Pages"]>button'
+  @page                             = '[data-test="item-node-target"]'
+  @page_button_reomve               = '[data-test="layout-button-remove-page"]'
+  @page_button_dublicate            = '[data-test="layout-button-remove-page"]'
+  @page_button_settings             = '[data-test="layout-button-remove-page"]'
   #initialize browser
   @browser
   def self.initBrowser(browser)
@@ -21,8 +24,13 @@ module Pages
     @browser.elements(css: @page_buttons)[1].click
     return self
   end
-  def self.delete_page
-    @browser.elements(css: @page_buttons)[2].click
+  def self.delete_page(page_number=0)
+    page_length_before = @browser.elements(css: @page).length
+    @browser.elements(css: @page)[page_number].hover
+    @browser.elements(css: @page_button_reomve)[page_number].click
+    @browser.element(css: @pages_open).click
+    page_length_after = @browser.elements(css: @page).length
+    return page_length_before, page_length_after
   end
 
   def self.create_new_page

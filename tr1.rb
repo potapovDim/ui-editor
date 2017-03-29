@@ -1,9 +1,7 @@
-def prev_returner(*args)
-  return 'a','b','c'
-end
-def returner
-  return 1, prev_returner ,3
+a = ['a','b','c']
+a.each do |i| 
+  ipppp = i.include? 'a'
+  puts ipppp 
 end
 
-a, b, c = returner
-puts 10!= 11
+puts 'dsadasjdhas'.include?('dsad') == false && true
