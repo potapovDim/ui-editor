@@ -17,7 +17,6 @@ class Row
         ContextPanelRow.row_duplicate(index)
       when "settings"
         ContextPanelRow.open_row_settings(index)
-        return Settings.initBrowser @@browser
     end
   end
 end
