@@ -20,18 +20,21 @@ module ContextPanelBlock
   end
   def self.block_remove(index)
     @browser.elements(css: @block_component)[index].hover
+    @browser.elements(css: @block_component)[index].click
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @remove_block)[index].click
     return self
   end
   def self.block_duplicate(index)
     @browser.elements(css: @block_component)[index].hover
+    @browser.elements(css: @block_component)[index].click
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @duplicate_block)[index].click
     return self
   end
   def self.open_block_settings (index)
     @browser.elements(css: @block_component)[index].hover
+    @browser.elements(css: @block_component)[index].click
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @open_settings)[index].click
     return SettingsBlock.initBrowser @browser
